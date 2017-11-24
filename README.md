@@ -3,6 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Get started
 
+Make sure you have node, npm  and yarn installed on your system
+
 clone repo and cd into directory
 ```shell
 git clone git@github.com:loopdream/react-step-component-test.git && cd react-step-component-test
