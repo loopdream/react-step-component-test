@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 clone repo and cd into directory
 ```shell
-git clone  &&  cd 
+git clone git@github.com:loopdream/react-step-component-test.git && cd react-step-component-test
 ```
 
 Install all the  dependencies
