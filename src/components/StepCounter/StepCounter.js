@@ -40,11 +40,12 @@ class StepCounter extends Component {
 
     // fuction to map over step items and render StepCounterItem component
     const stepItems = this.steps.map((step, i) => {
+      let isActive = i <= this.state.activeStep ? true : false 
       return (
         <StepCounterItem
           onStepClick={selectedStep => this.updateStep(selectedStep)}
           step={step}
-          activeStep={this.state.activeStep}
+          isActive={isActive}
           index={i}
           key={i} />
       )
