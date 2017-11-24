@@ -3,13 +3,11 @@ import StepCounterItem from './StepCounterItem'
 
 import './StepCounter.css'
 
-
 class StepCounter extends Component {
 
   constructor(props) {
 
     super(props)
-
     this.state = {
       activeStep: undefined, // we can set this in componentWillMount
     }
@@ -33,8 +31,6 @@ class StepCounter extends Component {
     ) ? false : this.setState({ activeStep: step })
   }
 
-
-  
   render() {
 
     // Lets check the num of steps before and show error if incorrect num steps

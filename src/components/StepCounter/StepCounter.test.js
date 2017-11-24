@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { configure, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new Adapter() });
+import { configure, mount } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+configure({ adapter: new Adapter() })
 
 
 import StepCounter from './StepCounter'
@@ -28,8 +28,8 @@ describe('<StepCounter />', () => {
     const initialState = 0
     const wrapper = mount(<StepCounter steps={counterSteps} activeStep={initialState} />)
     const step2 = wrapper.find('.StepCounterItem__bullet').at(1)
-    step2.simulate('click');
-    expect(wrapper.state('activeStep')).toBe(initialState+1);
+    step2.simulate('click')
+    expect(wrapper.state('activeStep')).toBe(initialState+1)
   })
  
 })
