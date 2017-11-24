@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 
+[View the component in action](http://loopdream.github.io/react-step-component-test/)
 # Get started
 
 Make sure you have node, npm  and yarn installed on your system
