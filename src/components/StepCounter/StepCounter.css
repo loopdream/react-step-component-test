@@ -1,0 +1,101 @@
+.StepCounter {
+    --active-color: #5125db;
+    --inactive-color: #c6c5c5;
+    --transition-track-time: 200ms;
+    --transition-track-delay: 100ms;
+    --transition-bullet-time: 100ms;
+    --transition-bullet-delay: 220ms;
+    --transition-label-time: 150ms;
+    --transition-label-delay: 150ms;
+    background: white;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    height: 40px;
+    padding-top: 40px;
+}
+
+.StepCounterItem.is-active .StepCounterItem__bullet {
+    border-color: var(--active-color);
+}
+
+.StepCounterItem {
+    flex-grow: 1;
+    position: relative;
+}
+
+.StepCounterItem:first-child:before,
+.StepCounterItem:first-child:after {
+    display: none;
+}
+
+.StepCounterItem:before,
+.StepCounterItem:after {
+    content: "";
+    display: block;
+    height: 5px;
+    background-color: var(--inactive-color);
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 100%;
+    transform: perspective(1px) translateY(-50%);
+}
+
+.StepCounterItem:after {
+    width: 0%;
+    z-index: 2;
+    left: -50%;
+    background-color: var(--active-color);
+    transition: width var(--transition-track-time) ease-in-out;
+    opacity: 1;
+}
+
+.StepCounterItem.is-active:after {
+    width: 100%;
+    opacity: 1;
+    transition: width var(--transition-track-time) var(--transition-track-delay) ease-in-out
+}
+
+.StepCounterItem__label {
+    font-weight: 800;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: perspective(1px) translateX(-50%);
+    color: var(--inactive-color);
+    transition: color 150ms ease-out
+}
+
+.StepCounterItem.is-active .StepCounterItem__label {
+    color: var(--active-color);
+    transition: color var(--transition-label-time) var(--transition-label-delay) ease-in
+}
+
+.StepCounterItem__bullet {
+    display: block;
+    border: 10px solid var(--inactive-color);
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    transform: perspective(1px) translateX(-50%);
+    z-index: 10;
+    transition: border-color var(--transition-bullet-time) ease-out
+}
+
+.StepCounterItem.is-active .StepCounterItem__bullet {
+    border-color: var(--active-color);
+    transition: border-color var(--transition-bullet-time) var(--transition-bullet-delay) ease-in
+}
+
+.StepCounterItem__bullet:hover {
+    cursor: pointer;
+}
