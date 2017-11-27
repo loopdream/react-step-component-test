@@ -31,5 +31,18 @@ describe('<StepCounter />', () => {
     step2.simulate('click')
     expect(wrapper.state('activeStep')).toBe(initialState+1)
   })
+
+  test('the state shouldnt change if a clicked step isnt an immediate sibling', () => {
+    const counterSteps = ['item1', 'item2', 'item3', 'item4', 'item5'] // set up 5 steps
+    const initialState = 2 // initial active state to be third step
+    const wrapper = mount(<StepCounter steps={counterSteps} activeStep={initialState} />)
+    const step1 = wrapper.find('.StepCounterItem__bullet').at(0)  
+    const step5 = wrapper.find('.StepCounterItem__bullet').at(4)  
+    // step 1 and step 5 shouldnt affect the state if clicked, as only immedtate siblings can change state
+    step1.simulate('click')
+    expect(wrapper.state('activeStep')).toBe(initialState)
+    step5.simulate('click')
+    expect(wrapper.state('activeStep')).toBe(initialState)
+  })
  
 })
