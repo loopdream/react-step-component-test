@@ -11,24 +11,28 @@ class StepCounter extends Component {
     this.state = {
       activeStep: undefined, // we can set this in componentWillMount
     }
-    
   }
 
   // componentWillMount is part of Component lifecycle and will fire before render
   componentWillMount() {
-    let activeStep = this.props.activeStep ? this.props.activeStep : 0 
+    let {
+      activeStep,
+      steps
+    } = this.props;
     this.setState({ activeStep })
-    this.steps = this.props.steps ? this.props.steps : [] 
+    this.steps = steps
   }
 
   // You can't jump over a step - 
   // set state with new active step val only if the step is an immediate sibling
   updateStep = step => {
-    return (
-      step === this.state.activeStep ||
-      step >= this.state.activeStep + 2 ||
-      step <= this.state.activeStep - 2
-    ) ? false : this.setState({ activeStep: step })
+    const { activeStep } = this.state
+    if(
+      step !== activeStep && 
+      (step === (Number(activeStep) + 1) || step === Number(activeStep) - 1)
+    ) {
+      this.setState({ activeStep: step })
+    }
   }
 
   render() {
